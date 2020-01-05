@@ -60,10 +60,7 @@ export function requestPost(url, action = {}) {
 			method: 'post',
 			url,
 			data: qs.stringify(action),
-			baseUrl: 'api/',
-			//headers: {
-			//  key: '5d2878270550ac239657ffa54edd96ff',
-			//},
+			
 		})
 			.then(res => {
 				resolve(res.data)
@@ -80,7 +77,7 @@ export function requestGet(url, action = {}) {
 			method: 'get',
 			url,
 			params: qs.stringify(action),
-			baseUrl: 'api/',
+			baseURL: '/api',
 		})
 			.then(res => {
 				resolve(res.data)
