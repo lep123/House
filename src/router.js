@@ -8,6 +8,7 @@ const Users = loader(() => import('@/layouts/Users'))
 const Base = loader(() => import('@/pages/base'))
 const Listings = loader(() => import('@/pages/listings'))
 const Lessee = loader(() => import('@/pages/lessee'))
+const Table = loader(() => import('@/pages/table'))
 
 
 const routes = [
@@ -30,6 +31,12 @@ const routes = [
 					{
 						component: Lessee,
 						path: '/',
+						routes:[
+							{
+								component: Table,
+								path: '/:id',
+							}
+						]
 					}
 				]
 			},
