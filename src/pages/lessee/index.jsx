@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
 import State from '@/pages/state'
 import { renderRoutes } from 'react-router-config'
+import Crumbs from '@@/Crumbs'
 import './style.less'
-import axios from 'axios'
 import {
   Link
 } from "react-router-dom";
@@ -17,6 +17,10 @@ export default class extends Component {
   render() {
     return (
       <div className="lessee">
+        <div className="head">
+          <Crumbs navName="承租方管理"/>
+        </div>
+        <div className="info">
           <Menu
             onClick={this.handleClick}
             style={{ width: 256 }}
@@ -77,7 +81,7 @@ export default class extends Component {
               {renderRoutes(this.props.route.routes)}
             </div>
           </div>
-
+        </div>  
       </div>
     )
   }

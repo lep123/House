@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './style.less'
 const { SubMenu } = Menu;
 export default class extends Component {
-    handleClick = e => {
-        console.log('click ', e);
-      };
+  handleClick = e => {
+    console.log('click ', e);
+  }
+  
   render() {
     return (
-        <Menu
+      <Menu
         onClick={this.handleClick}
         className="menu"
         defaultSelectedKeys={['1']}
@@ -30,7 +31,7 @@ export default class extends Component {
             </span>
           }
         >
-          <Menu.Item key="1"><Link to="/">承租方管理</Link></Menu.Item>
+          <Menu.Item key="1"><Link to="/1">承租方管理</Link></Menu.Item>
           <Menu.Item key="2"><Link to="/basic/base/listings">房源管理</Link></Menu.Item>
         </SubMenu>
         <SubMenu

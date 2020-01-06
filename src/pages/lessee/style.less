@@ -4,16 +4,25 @@
     box-sizing: border-box;
     overflow: auto;
     display: flex;
-    .menu::-webkit-scrollbar{width:0}
-    .menu{
-        height:100%;
-        overflow-x: hidden;
-        overflow-y:auto;
+    flex-direction: column;
+    .head{
+        width:100%;
     }
-    .lessee-table{
-        flex: 1;
-        .state{
+    .info{
+        flex:1;
+        display: flex;
+        .menu::-webkit-scrollbar{width:0}
+        .menu{
+            height:100%;
+            overflow-x: hidden;
+            overflow-y:auto;
+        }
+        .lessee-table{
             flex: 1;
+            .state{
+                flex: 1;
+            }
         }
     }
+    
 }
