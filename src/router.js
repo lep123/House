@@ -11,8 +11,8 @@ const Base = loader(() => import('@/pages/base'))
 const Listings = loader(() => import('@/pages/listings'))
 const Lessee = loader(() => import('@/pages/lessee'))
 const Table = loader(() => import('@/pages/table'))
-
-
+const Family = loader(() => import('@/pages/family'))
+const Construction = loader(() => import('@/pages/construction'))
 
 const routes = [
 	{
@@ -40,6 +40,14 @@ const routes = [
 					{
 						component: Listings,
 						path: '/basic/base/listings',
+					},
+					{
+						component: Family,
+						path: '/basic/base/family',
+					},
+					{
+						component: Construction,
+						path: '/basic/base/construction',
 					},
 					{
 						component: Lessee,
