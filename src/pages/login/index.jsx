@@ -18,6 +18,7 @@ class extends React.Component {
           .then( res => {
             if(res.payload.code == 200) {
               message.success('登录成功')
+              this.props.history('/')
             } else {
               message.success('登录失败')
             }
@@ -31,7 +32,7 @@ class extends React.Component {
     return (
       <div className="pages_login_box">
         <div className="pages_login_form">
-        <Form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Item>
               {getFieldDecorator('userName', {
                 rules: [{ required: true, message: 'Please input your username!' }],
