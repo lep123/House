@@ -22,12 +22,14 @@ axios.interceptors.request.use(config => {
 			u: config.url,
 		})
 	})
+
 	// 绑定key 值
 	// config.data = { ...config.data.data, key: '5d2878270550ac239657ffa54edd96ff' }
 	// config.headers = { ...config.headers, key: '5d2878270550ac239657ffa54edd96ff' }
 	// config.token = JSON.parse( localStorage.getItem('persist: root')) .token
 	// config.token = window.store.getState().login.token
 	// config.data = qs.stringify({ ...config.data, token: window.store.getState().login.token })
+	// config.data = { ...config.data, token: }
 	return config
 }, error => {
 	return Promise.reject(error)
@@ -50,22 +52,22 @@ axios.interceptors.response.use(response => {
 })
 
 export function requestPost(url, action = {}) {
-    
+	const { userInfo } = JSON.parse( localStorage.getItem('persist:root') )
+	console.log(userInfo,'token')
+	let datas = ''
+	if(userInfo){
+		datas = { ...action, token: userInfo}
+	}else {
+		datas = action
+	}
 	return new Promise((resolve, reject) => {
-		// const { token } = JSON.parse( localStorage.getItem('persist:root') )
-		// store.getState() 拿到所有的state
-		// console.log(window.store.getState().login.token, )
-		// store.js --- window.store = store
 		axios({
 			method: 'post',
 			url,
-			data: qs.stringify(action),
-			baseUrl: 'api/',
-			//headers: {
-			//  key: '5d2878270550ac239657ffa54edd96ff',
-			//},
+			data: qs.stringify(datas),
 		})
 			.then(res => {
+				console.log(res.data)
 				resolve(res.data)
 			})
 			.catch(err => {
@@ -80,7 +82,7 @@ export function requestGet(url, action = {}) {
 			method: 'get',
 			url,
 			params: qs.stringify(action),
-			baseUrl: 'api/',
+			
 		})
 			.then(res => {
 				resolve(res.data)

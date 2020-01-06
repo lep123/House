@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
+import Crumbs from '@@/Crumbs'
 import './style.less'
 const { SubMenu } = Menu
 export default class extends Component {
@@ -10,7 +11,7 @@ export default class extends Component {
     return (
       <div className="lessee">
         <div className="head">
-          当前位置
+          <Crumbs navName="承租方管理"/>
         </div>
         <div className="info">
           <Menu

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Crumbs from '@@/Crumbs'
 import './style.less'
 import { connect } from 'react-redux'
 import { home } from '@/actions/home'
@@ -32,13 +33,15 @@ const data = [
 
 
 export default @connect(state => ({
-  
+    data:state.index.data
 }), {
-  setData: home
+  setData: home.setData
 })class extends Component {
    constructor(props){
      super(props)
-     console.log(this.props.home,'++++++++++++++')
+     this.props.setData({page:1,limit:20})
+
+     console.log(this.props.data,'+++++++++')
    }
   render() {
     const rowSelection = {
@@ -48,13 +51,15 @@ export default @connect(state => ({
     };
     return (
       <div className="listings">
-         <p>房源管理哈哈哈</p>
-         <Table dataSource={data} rowSelection={rowSelection}>
+          <div className="listings-header">
+              <Crumbs navName="房源管理"/>
+          </div>
+        <Table dataSource={data} rowSelection={rowSelection} className="listings-tables">
           <Column title="First Name" dataIndex="firstName" key="firstName" />
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
           <Column title="Age" dataIndex="age" key="age" />
           <Column title="Address" dataIndex="address" key="address" />
-         
+          
           <Column
             title="Action"
             key="action"
