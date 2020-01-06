@@ -3,7 +3,6 @@ import { createActions } from 'redux-actions'
 import Apis from '@/services/api'
 
 export const home = createActions({
-    // CESHI: options => request(services.listWithPage),
-    SET_DATA: options => options,
+    SET_DATA: options => requestGet(Apis.listData),
   })
 
