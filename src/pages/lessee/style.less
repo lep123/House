@@ -1,0 +1,21 @@
+.lessee{
+    flex: 1;
+    padding-left: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    .head{
+        line-height: 40px;
+    }
+    .info{
+        flex: 1;
+        display:flex;
+        overflow: auto;
+        .menu::-webkit-scrollbar{width:0}
+        .menu{
+            height:100%;
+            overflow-x: hidden;
+            overflow-y:auto;
+        }
+    }
+}

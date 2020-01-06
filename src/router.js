@@ -7,6 +7,12 @@ const Basic = loader(() => import('@/layouts/Basic'))
 const Users = loader(() => import('@/layouts/Users'))
 const Login = loader(() => import('@/pages/login'))
 const Reg = loader(() => import('@/pages/reg'))
+const Base = loader(() => import('@/pages/base'))
+const Listings = loader(() => import('@/pages/listings'))
+const Lessee = loader(() => import('@/pages/lessee'))
+
+
+
 const routes = [
 	{
 		component: Users,
@@ -26,7 +32,20 @@ const routes = [
 		component: Basic,
 		path: '/',
 		routes: [
-			
+			{
+				component: Base,
+				path: '/',
+				routes:[
+					{
+						component: Listings,
+						path: '/basic/base/listings',
+					},
+					{
+						component: Lessee,
+						path: '/',
+					}
+				]
+			},
 		]
 	}
 ]
