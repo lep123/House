@@ -53,10 +53,9 @@ axios.interceptors.response.use(response => {
 
 export function requestPost(url, action = {}) {
 	const { userInfo } = JSON.parse( localStorage.getItem('persist:root') )
-	console.log(userInfo,'token')
 	let datas = ''
 	if(userInfo){
-		datas = { ...action, token: userInfo}
+		datas = { ...action, token: userInfo.substring(1,userInfo.length-1)}
 	}else {
 		datas = action
 	}
@@ -67,7 +66,6 @@ export function requestPost(url, action = {}) {
 			data: qs.stringify(datas),
 		})
 			.then(res => {
-				console.log(res.data)
 				resolve(res.data)
 			})
 			.catch(err => {
