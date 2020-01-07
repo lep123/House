@@ -10,8 +10,9 @@ const Reg = loader(() => import('@/pages/reg'))
 const Base = loader(() => import('@/pages/base'))
 const Listings = loader(() => import('@/pages/listings'))
 const Lessee = loader(() => import('@/pages/lessee'))
-
-
+const Table = loader(() => import('@/pages/table'))
+const Family = loader(() => import('@/pages/family'))
+const Construction = loader(() => import('@/pages/construction'))
 
 const routes = [
 	{
@@ -41,8 +42,22 @@ const routes = [
 						path: '/basic/base/listings',
 					},
 					{
+						component: Family,
+						path: '/basic/base/family',
+					},
+					{
+						component: Construction,
+						path: '/basic/base/construction',
+					},
+					{
 						component: Lessee,
 						path: '/',
+						routes:[
+							{
+								component: Table,
+								path: '/:id',
+							}
+						]
 					}
 				]
 			},

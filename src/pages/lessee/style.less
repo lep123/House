@@ -2,20 +2,27 @@
     flex: 1;
     padding-left: 10px;
     box-sizing: border-box;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     .head{
-        line-height: 40px;
+        width:100%;
     }
     .info{
-        flex: 1;
-        display:flex;
-        overflow: auto;
+        flex:1;
+        display: flex;
         .menu::-webkit-scrollbar{width:0}
         .menu{
             height:100%;
             overflow-x: hidden;
             overflow-y:auto;
         }
+        .lessee-table{
+            flex: 1;
+            .state{
+                flex: 1;
+            }
+        }
     }
+    
 }

@@ -18,6 +18,7 @@ class extends React.Component {
           .then( res => {
             localStorage.token=res.payload.result
             if(res.payload.code == 200) {
+              sessionStorage.setItem('name',values.userName)
               message.success('登录成功')
               this.props.history.push('/')
             } else {
