@@ -16,9 +16,10 @@ class extends React.Component {
       if (!err) {
         this.props.getUser(values)
           .then( res => {
+            localStorage.token=res.payload.result
             if(res.payload.code == 200) {
               message.success('登录成功')
-              this.props.history('/')
+              this.props.history.push('/')
             } else {
               message.success('登录失败')
             }
